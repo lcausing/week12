@@ -1,12 +1,13 @@
 const clickMeButton = document.querySelector(".click-me");
 // console.log(clickMeButton)
 
-function handleClickMeButton(){
+function handleClickMeButton(event){
+    console.log(event.target)
     alert("Clicked!");
     // clickMeButton.removeEventListener('click',handleClickMeButton)
 }
 
-// clickMeButton.addEventListener('click',handleClickMeButton,{once:true})
+clickMeButton.addEventListener('click',handleClickMeButton)
 // This will make event listener only do once and then gets removed
 
 // clickMeButton.addEventListener('click',handleClickMeButton);
@@ -32,3 +33,28 @@ function changeText(){
 
 clickMeButton.addEventListener("click",changeText);
 
+
+function createAddButton()
+{
+    const purpleButton = document.createElement("button");
+    purpleButton.textContent="Purple"
+    purpleButton.addEventListener ("mouseover", changeBGGreen)
+    document.body.appendChild(purpleButton)
+}
+
+clickMeButton.addEventListener("click",createAddButton);
+
+function createAddPara()
+{
+    const paragraph = document.createElement("p")
+    paragraph.textContent="adding paragraph"
+    purpleButton.addEventListener ("mouseover", changeBGGreen)
+    document.body.appendChild(paragraph)
+}
+
+clickMeButton.addEventListener("click",createAddPara);
+
+function changeBGGreen(event){
+    event.target.classList.add("green-background")
+
+}
